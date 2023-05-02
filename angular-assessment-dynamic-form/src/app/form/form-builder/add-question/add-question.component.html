@@ -1,0 +1,48 @@
+<div class="mat-dialog-header">
+  <span>
+    {{data.title}}
+  </span>
+  <span mat-dialog-close class="cursor">&times;</span>
+</div>
+<mat-dialog-content>
+  <form [formGroup]="reactiveForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select type</mat-label>
+      <mat-select formControlName="type" (selectionChange)="typeChange($event)">
+        <mat-option *ngFor="let option of typeQuestion" [value]="option">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type question here</mat-label>
+      <input formControlName="question" matInput placeholder="Type question here">
+    </mat-form-field>
+
+    <div *ngIf="reactiveForm.controls['options']" formArrayName="options">
+      <div *ngFor="let option of f_options.controls; let i=index">
+        <mat-form-field appearance="outline">
+          <mat-label>Add answer option</mat-label>
+          <input [formControlName]="i" matInput placeholder="Add answer option">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="reactiveForm.value.type ==  typeQuestionEnum.checklist && this.f_options.length < limitAnswer">
+      <a class="add-another-answer cursor" (click)="addAnotherAnswers()">Add another answer</a>
+    </div>
+
+    <div class="form-control" *ngIf="reactiveForm.controls['otherOption']">
+      <mat-checkbox formControlName="otherOption" color="primary">Allow user to spectify their own
+        answer</mat-checkbox>
+    </div>
+
+    <div class="form-control">
+      <mat-checkbox formControlName="isRequired" color="primary">This is required fields</mat-checkbox>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+</mat-dialog-actions>

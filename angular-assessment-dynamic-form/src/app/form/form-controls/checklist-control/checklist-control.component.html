@@ -1,0 +1,18 @@
+<div class="question-wrapper">
+  <div class="question">
+    <span class="truncate" *ngIf="config?.question">
+      {{config?.question}}
+    </span>
+    <ng-container *ngIf="config?.isRequired"><span class="text-red">*</span></ng-container>
+  </div>
+  <div class="options" *ngFor="let option of config?.options; index as i;trackBy:trackByFn;">
+    <mat-checkbox color="primary" [value]="option?.id||''" [checked]="!!config?.answers?.includes(option?.id || '')"
+      (change)="optionChange($event,option)">
+      {{option.title}}
+    </mat-checkbox>
+  </div>
+
+  <mat-form-field appearance="outline" *ngIf="(config?.otherOption) && !!config?.answers?.includes('other')">
+    <textarea matInput [formControl]="otherAnswerControl" rows="4"></textarea>
+  </mat-form-field>
+</div>

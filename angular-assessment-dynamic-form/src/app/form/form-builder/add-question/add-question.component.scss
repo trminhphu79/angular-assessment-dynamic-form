@@ -1,0 +1,21 @@
+.add-another-answer {
+  color: #3f51b5;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  margin-top: 1rem;
+}
+
+.mat-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    &:nth-child(2) {
+      font-size: 2rem;
+    }
+  }
+}

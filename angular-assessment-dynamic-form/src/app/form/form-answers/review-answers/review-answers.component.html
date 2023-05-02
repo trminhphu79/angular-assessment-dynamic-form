@@ -1,0 +1,26 @@
+<div *ngIf="formState" class="review-list">
+  <ng-container *ngFor="let item of formState; trackBy:trackByFn;">
+    <div class="review-item">
+      <h3 matListItemTitle class="truncate">{{item?.question}}</h3>
+      <div>
+        <ng-container [ngSwitch]="item.type">
+          <ng-container *ngSwitchCase="typeQuestionEnum.paragraph">
+            <div class="truncate">{{item.answers}}</div>
+          </ng-container>
+          <ng-container *ngSwitchCase="typeQuestionEnum.checklist">
+            <ng-container *ngFor="let answer of item?.answers">
+              <div class="truncate" *ngIf="answer !== 'other'; else otherTemplate">
+                {{answer | transformText}}
+              </div>
+              <ng-template #otherTemplate>
+                <div class="truncate">
+                  {{item.otherValue}}
+                </div>
+              </ng-template>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

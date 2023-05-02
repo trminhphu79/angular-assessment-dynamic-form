@@ -1,0 +1,26 @@
+<div class="form-container">
+  <h3 class="form-title">Questions</h3>
+  <div class="form-content">
+    <ng-container *ngFor="let config of formState; trackBy:trackByFn">
+      <div clas="form-item">
+        <ng-container [ngSwitch]="config.type">
+          <ng-container *ngSwitchCase="typeQuestionEnum.checklist">
+            <app-checklist-control [config]="config"></app-checklist-control>
+          </ng-container>
+          <ng-container *ngSwitchCase="typeQuestionEnum.paragraph">
+            <app-textarea-control [config]="config"></app-textarea-control>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class="form-action">
+    <div class="add-new">
+      <a mat-stroked-button color="primary" (click)="addNewQuestion()">
+        Add new question</a>
+    </div>
+    <div class="review">
+      <button mat-stroked-button (click)="reviewAnswers()">Review my answer</button>
+    </div>
+  </div>
+</div>

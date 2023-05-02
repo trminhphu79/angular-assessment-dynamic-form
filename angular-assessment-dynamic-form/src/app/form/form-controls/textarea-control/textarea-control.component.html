@@ -1,0 +1,10 @@
+<div class="question-wrapper">
+  <div class="question truncate">{{config?.question}}
+    <ng-container *ngIf="config?.isRequired">
+      <span class="text-red">*</span>
+    </ng-container>
+  </div>
+  <mat-form-field appearance="outline">
+    <textarea rows='4' [formControl]="control" matInput></textarea>
+  </mat-form-field>
+</div>
