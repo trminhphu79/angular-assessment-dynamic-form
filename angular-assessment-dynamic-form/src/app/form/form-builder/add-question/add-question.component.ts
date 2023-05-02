@@ -35,7 +35,9 @@ export class AddQuestionComponent {
   }
 
   @HostListener('window:keyup.enter') onEnter() {
-    this.addAnotherAnswers();
+    if (this.f_options.length < this.limitAnswer) {
+      this.addAnotherAnswers();
+    }
   }
 
   get f_options() { return (this.reactiveForm.get('options') as FormArray) }
