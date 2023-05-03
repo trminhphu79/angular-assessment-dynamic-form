@@ -4,10 +4,10 @@
     <ng-container *ngFor="let config of formState; trackBy:trackByFn">
       <div clas="form-item">
         <ng-container [ngSwitch]="config.type">
-          <ng-container *ngSwitchCase="typeQuestionEnum.checklist">
+          <ng-container *ngSwitchCase="typeQuestionEnum.CHECKLIST">
             <app-checklist-control [config]="config"></app-checklist-control>
           </ng-container>
-          <ng-container *ngSwitchCase="typeQuestionEnum.paragraph">
+          <ng-container *ngSwitchCase="typeQuestionEnum.PARAGRAPH">
             <app-textarea-control [config]="config"></app-textarea-control>
           </ng-container>
         </ng-container>

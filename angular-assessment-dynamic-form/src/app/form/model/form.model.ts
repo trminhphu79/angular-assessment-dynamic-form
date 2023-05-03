@@ -1,8 +1,8 @@
 import { FormControl } from "@angular/forms";
 
 export enum TypeQuestionEnum {
-  paragraph = 'paragraph',
-  checklist = 'checklist',
+  PARAGRAPH = 'Paragraph',
+  CHECKLIST = 'Checklist',
 }
 
 export const LIMIT_ANSWER = 5;

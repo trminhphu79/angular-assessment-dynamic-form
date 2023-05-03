@@ -17,7 +17,7 @@ import { DEFAULT_SNACKBAR } from '../../model/snackbar.model';
 export class AddQuestionComponent {
 
   public reactiveForm: FormGroup = this.__fb.group(this.__formService.getDefaultAddQuestionForm());
-  public typeQuestion: TypeQuestionEnum[] = [TypeQuestionEnum.checklist, TypeQuestionEnum.paragraph];
+  public typeQuestion: TypeQuestionEnum[] = [TypeQuestionEnum.CHECKLIST, TypeQuestionEnum.PARAGRAPH];
   public typeQuestionEnum = TypeQuestionEnum;
   public limitAnswer = LIMIT_ANSWER;
 
@@ -44,10 +44,10 @@ export class AddQuestionComponent {
 
   typeChange(event: MatSelectChange) {
     switch (event.value) {
-      case TypeQuestionEnum.checklist:
+      case TypeQuestionEnum.CHECKLIST:
         this.reactiveForm.addControl('otherOption', new FormControl(true));
         break;
-      case TypeQuestionEnum.paragraph:
+      case TypeQuestionEnum.PARAGRAPH:
         this.reactiveForm.removeControl('otherOption');
         break;
       default:
@@ -61,7 +61,7 @@ export class AddQuestionComponent {
 
   submit() {
     if (this.reactiveForm.invalid ||
-      (this.f_options?.length == 0 && this.reactiveForm.value.type == TypeQuestionEnum.checklist)) {
+      (this.f_options?.length == 0 && this.reactiveForm.value.type == TypeQuestionEnum.CHECKLIST)) {
       this.reactiveForm.markAllAsTouched();
       this.__snackBar.open("Please select at least one answer option", "", DEFAULT_SNACKBAR);
       return

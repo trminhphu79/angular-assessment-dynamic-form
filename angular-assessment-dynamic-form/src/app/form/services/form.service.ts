@@ -23,7 +23,7 @@ export class FormService {
 
   getDefaultAddQuestionForm() {
     return {
-      type: [TypeQuestionEnum.checklist, [Validators.required]],
+      type: [TypeQuestionEnum.CHECKLIST, [Validators.required]],
       isRequired: true,
       question: [[], [Validators.required]],
       options: new FormArray([]),
@@ -36,7 +36,7 @@ export class FormService {
       id: config?.id || Math.random().toString(16).slice(2),
       question: config?.question || '',
       isRequired: !!config?.isRequired,
-      type: config?.type || TypeQuestionEnum.checklist,
+      type: config?.type || TypeQuestionEnum.CHECKLIST,
       answers: config?.answers || '',
       options: config?.options || [],
       control: config?.control || new FormControl(config?.answers || '', (config?.isRequired ? [Validators.required] : null)),
