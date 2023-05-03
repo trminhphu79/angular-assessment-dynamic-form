@@ -7,7 +7,7 @@ import { FormArray } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DEFAULT_SNACKBAR } from '../../model/snackbar.const';
+import { DEFAULT_SNACKBAR } from '../../model/snackbar.model';
 
 @Component({
   selector: 'app-add-question',

@@ -8,7 +8,7 @@ import { Subscription, takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/utils/base/base.component';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DEFAULT_SNACKBAR } from '../model/snackbar.const';
+import { DEFAULT_SNACKBAR } from '../model/snackbar.model';
 
 @Component({
   selector: 'app-form-builder',
