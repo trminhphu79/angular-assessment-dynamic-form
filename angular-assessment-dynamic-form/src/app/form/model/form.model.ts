@@ -24,6 +24,6 @@ export interface IOption {
   id?: string;
 }
 
-export interface ICheckList extends IFormState {
+export interface IAnswers extends IFormState {
   answers?: string[]
 }

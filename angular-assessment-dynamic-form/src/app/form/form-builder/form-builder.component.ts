@@ -8,6 +8,7 @@ import { Subscription, takeUntil } from 'rxjs';
 import { BaseComponent } from 'src/app/utils/base/base.component';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DEFAULT_SNACKBAR } from '../model/snackbar.const';
 
 @Component({
   selector: 'app-form-builder',
@@ -66,7 +67,7 @@ export class FormBuilderComponent extends BaseComponent {
 
   public reviewAnswers() {
     if (this.reactiveForm.invalid || this.formState.some((ite) => (ite.answers?.includes('other') && !ite.otherValue) && ite.answers.length == 1)) {
-      this.snackbar.open("Please enter full information!!");
+      this.snackbar.open("Please enter full information!!", '', DEFAULT_SNACKBAR);
       this.reactiveForm.markAllAsTouched();
       return;
     }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ICheckList, TypeQuestionEnum } from '../../model/form.model';
+import { IAnswers, TypeQuestionEnum } from '../../model/form.model';
 import { Input } from '@angular/core';
 import { BaseComponent } from 'src/app/utils/base/base.component';
 
@@ -10,7 +10,7 @@ import { BaseComponent } from 'src/app/utils/base/base.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReviewAnswersComponent extends BaseComponent {
-  @Input() formState: ICheckList[] = [];
+  @Input() formState: IAnswers[] = [];
   typeQuestionEnum = TypeQuestionEnum;
   constructor() { super() }
 }
