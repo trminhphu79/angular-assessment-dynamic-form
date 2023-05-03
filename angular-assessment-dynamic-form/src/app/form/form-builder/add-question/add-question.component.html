@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div *ngIf="reactiveForm.value.type ==  typeQuestionEnum.checklist && this.f_options.length < limitAnswer">
+    <div *ngIf="reactiveForm.value.type ==  typeQuestionEnum.CHECKLIST && this.f_options.length < limitAnswer">
       <a class="add-another-answer cursor" (click)="addAnotherAnswers()">Add another answer</a>
     </div>
 

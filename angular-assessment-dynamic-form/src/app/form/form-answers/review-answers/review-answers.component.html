@@ -4,10 +4,10 @@
       <h3 matListItemTitle class="truncate">{{item?.question}}</h3>
       <div>
         <ng-container [ngSwitch]="item.type">
-          <ng-container *ngSwitchCase="typeQuestionEnum.paragraph">
+          <ng-container *ngSwitchCase="typeQuestionEnum.PARAGRAPH">
             <div class="truncate">{{item.answers}}</div>
           </ng-container>
-          <ng-container *ngSwitchCase="typeQuestionEnum.checklist">
+          <ng-container *ngSwitchCase="typeQuestionEnum.CHECKLIST">
             <ng-container *ngFor="let answer of item?.answers">
               <div class="truncate" *ngIf="answer !== 'other'; else otherTemplate">
                 {{answer | transformText}}

@@ -26,7 +26,7 @@ export class FormBuilderComponent extends BaseComponent {
     private __dialog: MatDialog,
     private __formService: FormService,
     private __router: Router,
-    private snackbar: MatSnackBar
+    private __snackbar: MatSnackBar
   ) {
     super();
   }
@@ -67,7 +67,7 @@ export class FormBuilderComponent extends BaseComponent {
 
   public reviewAnswers() {
     if (this.reactiveForm.invalid || this.formState.some((ite) => (ite.answers?.includes('other') && !ite.otherValue) && ite.answers.length == 1)) {
-      this.snackbar.open("Please enter full information!!", '', DEFAULT_SNACKBAR);
+      this.__snackbar.open("Please enter full information!!", '', DEFAULT_SNACKBAR);
       this.reactiveForm.markAllAsTouched();
       return;
     }
